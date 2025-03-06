@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📌 Accountable Tools – Frontend (accountable-fe)
+🚀 A modular, scalable, and fast business data management frontend.
+🔄 Migrated from Next.js to Vite for improved performance, flexibility, and maintainability.
 
-## Getting Started
+📋 Table of Contents
+🚀 Overview
+🎯 Tech Stack
+📁 Project Structure
+⚙️ Setup & Installation
+💻 Development
+🎨 Styling & Theming
+📜 Notes on the Migration from Next.js
+📌 Next Steps
+🚀 Overview
+This is the frontend codebase for Accountable Tools, a business data management platform designed with flexibility, transparency, 
+and automation in mind. The frontend is built using Vite + React + Tailwind CSS, replacing a previous Next.js implementation.
 
-First, run the development server:
+Why Vite?
+⚡ Faster development & builds (~10x faster than Next.js in some cases).
+🎯 Simpler, more modular structure without opinionated routing.
+🛠️ Easier debugging & direct control over performance optimizations.
 
-```bash
+🎯 Tech Stack
+Framework: Vite with React
+UI Library: Tailwind CSS for modern, accessible styling
+State Management: Zustand or React Query (TBD)
+Routing: React Router (instead of Next.js built-in routing)
+Package Manager: npm (or pnpm if needed)
+Linting & Formatting: ESLint + Prettier
+Deployment: Vercel (TBD) or Cloudflare Pages (TBD)
+
+📁 Project Structure
+src
+├── components/              # Reusable UI components
+│   ├── layout/              # Navigation & layout components (Sidebar, TopNav, etc.)
+│   ├── ui/                  # UI elements (buttons, cards, modals)
+│
+├── styles/                  # Tailwind & global styles
+│   ├── globals.css          # Core styles + Tailwind directives
+│   ├── base.css             # Base styles (fonts, resets)
+│   ├── components.css       # Component-level styles
+│   ├── utilities.css        # Custom utilities if needed
+│
+├── hooks/                   # Custom React hooks
+│   ├── useAuth.ts           # Authentication hook
+│   ├── useTheme.ts          # Dark mode or theme management
+│
+├── lib/                     # Utility functions
+│   ├── api.ts               # API requests
+│   ├── format.ts            # Formatting helpers
+│
+├── config/                  # Project configs
+│   ├── tailwind.config.ts   # Tailwind configuration
+│   ├── vite.config.ts       # Vite configuration
+│
+├── main.tsx                 # React entry point
+├── App.tsx                  # Root App component
+│
+└── public/                  # Static assets (e.g., `index.html`)
+
+
+⚙️ Setup & Installation
+1️⃣ Clone the repository
+git clone https://github.com/accountable-tools/accountable-fe.git
+cd accountable-fe
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+➡️ The app should now be running at http://localhost:5173/.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💻 Development
+🛠 Running the Dev Server
+npm run dev
 
-## Learn More
+🚀 Building for Production
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+✅ Linting & Formatting
+npm run lint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎨 Styling & Theming
+This project uses Tailwind CSS for rapid UI development.
+✔️ Colors & branding defined in tailwind.config.ts
+✔️ Global styles in styles/globals.css
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Example:
+<div className="bg-accountableRed text-white p-4 rounded-lg shadow-lg">
+  Welcome to Accountable Tools!
+</div>
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📜 Notes on the Migration from Next.js
+Why migrate?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Faster builds & dev experience with Vite.
+No need for Next.js features (SSR, API routes, etc.) in our use case.
+More control over the project structure and configurations.
+Major Changes
+Removed Next.js dependencies (next, react-dom).
+Installed Vite + React plugin (vite, @vitejs/plugin-react).
+Converted src/app/ structure to Vite-friendly organization.
+Replaced Next.js routing with React Router (TBD).
+
+📌 Next Steps
+✅ Refine component structure (Sidebar, Dashboard, Settings UI).
+✅ Implement routing with React Router (TBD).
+✅ Set up API handling for backend integration.
+✅ Optimize Tailwind config for theming & WCAG compliance.
+✅ Decide on hosting & deployment (Vercel? Cloudflare Pages?).
+
+🚀 Contributors
+Eitan  – Founder & CEO (@itzEitan)
+

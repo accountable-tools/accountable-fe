@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+echo '@tailwind base;\n@tailwind components;\n@tailwind utilities;' > src/styles/globals.css
+
