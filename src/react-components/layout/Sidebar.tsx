@@ -21,7 +21,7 @@ export default function Sidebar({
 }) {
   return (
     <aside
-      className={`relative h-full flex flex-col transition-all duration-300 ${
+      className={`relative h-screen flex flex-col transition-all duration-300 ${
         isCollapsed ? "w-16" : "w-64"
       }`}
       style={{ backgroundColor: COLORS.primary }}
@@ -42,13 +42,13 @@ export default function Sidebar({
 
       {/* Entity Navigator (Pinned to Top) */}
       {!isCollapsed && (
-        <div className="absolute top-2 left-0 w-full px-4">
+        <div className="px-4 mt-4">
           <EntityNavigator />
         </div>
       )}
 
       {/* Navigation Links */}
-      <nav className="flex-1 mt-16">
+      <nav className="flex-1 mt-6">
         <ul className="space-y-4">
           {navItems.map((item) => (
             <li key={item.label}>
