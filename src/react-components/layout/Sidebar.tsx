@@ -29,12 +29,13 @@ export default function Sidebar({
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* 🔥 Expand/Collapse Button - Now RELATIVE to Sidebar */}
-      <div className="flex justify-end p-2">
+      {/* 🔥 Expand/Collapse Button - Now Correctly Positioned on Sidebar Border */}
+      <div className="absolute top-[5%] right-[-22px] z-50">
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          style={{ transform: "translateX(0%)" }} // ✅ Ensures perfect alignment
         >
           {isCollapsed ? (
             <ChevronRight size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
