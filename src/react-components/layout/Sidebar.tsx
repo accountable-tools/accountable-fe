@@ -28,16 +28,16 @@ export default function Sidebar() {
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Sidebar Toggle (Sleek & Modern) */}
+      {/* Floating Sidebar Toggle (Now Using slateCharcoal for Visibility) */}
       <button
         onClick={toggleSidebar}
-        className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md text-primary border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
+        className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
         {isCollapsed ? (
-          <ChevronRight size={20} strokeWidth={2} />
+          <ChevronRight size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
         ) : (
-          <ChevronLeft size={20} strokeWidth={2} />
+          <ChevronLeft size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
         )}
       </button>
 
