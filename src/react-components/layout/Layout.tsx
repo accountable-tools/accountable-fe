@@ -1,27 +1,36 @@
+import { useState } from "react";
 import Sidebar from "@/react-components/layout/Sidebar";
-import TopNav from "@/react-components/layout/TopNav";
-import Footer from "@/react-components/layout/Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [isCollapsed, setIsCollapsed] = useState(false); // Track sidebar state
+
   return (
-    <div className="flex min-h-screen bg-softStone">
-      {/* Sidebar (fixed width ~ 35%) */}
-      <aside className="w-72 bg-primary text-white">
-        <Sidebar />
-      </aside>
+    <div className="flex min-h-screen bg-softStone transition-all duration-300">
+      {/* Sidebar (controls isCollapsed state) */}
+      <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
-      {/* Main content (remaining 65%) */}
-      <div className="flex-1 flex flex-col">
-        {/* Top navigation */}
-        <TopNav />
+      {/* Main Content Wrapper - Adjusts dynamically */}
+      <div
+        className={`flex flex-col transition-all duration-300 ${
+          isCollapsed ? "ml-16" : "ml-64"
+        }`}
+        style={{ width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)" }}
+      >
+        {/* Top Navigation */}
+        <nav className="h-16 bg-white shadow-md flex items-center px-4">
+          <h1 className="text-lg font-semibold transition-all duration-300">
+            {isCollapsed ? "AT" : "Accountable Tools"}
+          </h1>
+        </nav>
 
-        {/* Main content */}
-        <main className="flex-1 p-6">{children}</main>
+        {/* Main Page Content */}
+        <main className="flex-1 p-6 transition-all duration-300">{children}</main>
 
         {/* Footer */}
-        <Footer />
+        <footer className="h-16 bg-gray-200 flex items-center justify-center transition-all duration-300">
+          <span>© 2025 Accountable Tools</span>
+        </footer>
       </div>
     </div>
   );
 }
-
