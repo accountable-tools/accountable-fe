@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "@/react-components/layout/Sidebar";
+import Main from "@/react-components/layout/Main"; // Import the new Main component
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -26,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </h1>
         </nav>
 
-        <main className="flex-1 p-6 transition-all duration-300">{children}</main>
+        <Main>{children}</Main> {/* Use the Main component here */}
 
         <footer className="h-16 bg-gray-200 flex items-center justify-center transition-all duration-300">
           <span>© 2025 Accountable Tools</span>
