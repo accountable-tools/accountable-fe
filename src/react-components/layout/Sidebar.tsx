@@ -1,25 +1,4 @@
-import { useState } from "react";
-import { COLORS } from "@/react-components/theme/colors";
-import EntityNavigator from "@/react-components/layout/EntityNavigator";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Import sleek chevron icons
-
-interface NavItem {
-  label: string;
-  href?: string;
-}
-
-const navItems: NavItem[] = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Settings", href: "/settings" },
-];
-
-export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsCollapsed((prev) => !prev);
-  };
-
+export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsCollapsed: (value: boolean) => void }) {
   return (
     <aside
       className={`relative h-full flex flex-col transition-all duration-300 ${
@@ -28,9 +7,9 @@ export default function Sidebar() {
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Sidebar Toggle (Now Using slateCharcoal for Visibility) */}
+      {/* Floating Sidebar Toggle */}
       <button
-        onClick={toggleSidebar}
+        onClick={() => setIsCollapsed(!isCollapsed)}
         className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
