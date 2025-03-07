@@ -19,28 +19,32 @@ export default function Sidebar({
   isCollapsed: boolean;
   setIsCollapsed: (value: boolean) => void;
 }) {
+  console.log("Sidebar Rendered: isCollapsed =", isCollapsed); // Debugging
+
   return (
     <aside
-      className={`h-screen flex flex-col transition-all duration-300 ${
+      className={`relative h-screen flex flex-col transition-all duration-300 ${
         isCollapsed ? "w-16" : "w-64"
       }`}
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Sidebar Toggle (Fully Clickable) */}
-      <button
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute top-[5%] -right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
-        aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-      >
-        {isCollapsed ? (
-          <ChevronRight size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
-        ) : (
-          <ChevronLeft size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
-        )}
-      </button>
+      {/* 🔥 Expand/Collapse Button - Now RELATIVE to Sidebar */}
+      <div className="flex justify-end p-2">
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          {isCollapsed ? (
+            <ChevronRight size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
+          ) : (
+            <ChevronLeft size={20} stroke={COLORS.slateCharcoal} strokeWidth={2} />
+          )}
+        </button>
+      </div>
 
-      {/* Entity Navigator (Pinned to Top) */}
+      {/* Entity Navigator */}
       {!isCollapsed && (
         <div className="px-4 mt-4">
           <EntityNavigator />
