@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "@/react-components/layout/Sidebar";
-import Main from "@/react-components/layout/Main"; // Import the new Main component
+import Main from "@/react-components/layout/Main";
+import BottomNav from "@/react-components/layout/BottomNav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -10,14 +11,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sidebar Controls Layout */}
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
-      {/* 🔥 Fix Page Slicing: Adjust Main Content Positioning */}
+      {/* Content Area */}
       <div
         className={`flex flex-col transition-all duration-300 ${
           isCollapsed ? "ml-16" : "ml-64"
         }`}
         style={{
           width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)",
-          // Ensures no gap when sidebar is collapsed
           transition: "width 0.3s ease-in-out",
         }}
       >
@@ -27,11 +27,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </h1>
         </nav>
 
-        <Main>{children}</Main> {/* Use the Main component here */}
+        {/* Main content area */}
+        <Main>{children}</Main>
 
-        <footer className="h-16 bg-gray-200 flex items-center justify-center transition-all duration-300">
-          <span>© 2025 Accountable Tools</span>
-        </footer>
+        {/* Bottom navigation / footer */}
+        <BottomNav />
       </div>
     </div>
   );
