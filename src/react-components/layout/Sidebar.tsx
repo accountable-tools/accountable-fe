@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { COLORS } from "@/react-components/theme/colors";
+import EntityNavigator from "@/react-components/layout/EntityNavigator"; // Import EntityNavigator
 
 interface NavItem {
   label: string;
@@ -47,8 +48,15 @@ export default function Sidebar() {
         </svg>
       </button>
 
+      {/* Entity Navigator (Placed Below Toggle) */}
+      {!isCollapsed && (
+        <div className="px-4 mt-10">
+          <EntityNavigator />
+        </div>
+      )}
+
       {/* Nav Links */}
-      <nav className="flex-1 mt-10">
+      <nav className="flex-1 mt-6">
         <ul className="space-y-4">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -70,4 +78,3 @@ export default function Sidebar() {
     </aside>
   );
 }
-
