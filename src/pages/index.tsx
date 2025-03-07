@@ -1,13 +1,11 @@
-import React from "react";
 import Layout from "@/react-components/layout/Layout";
 
 export default function HomePage() {
   return (
     <Layout>
-      <div className="text-gray-900">
-        <h2 className="text-2xl font-semibold">Welcome to Accountable Tools</h2>
-        <p className="mt-2">Start building your page content here!</p>
-      </div>
+      <h1 className="text-xl font-semibold text-gray-900">Welcome to Accountable Tools</h1>
+      <p className="mt-4 text-gray-700">Start building your page content here!</p>
     </Layout>
   );
 }
+
