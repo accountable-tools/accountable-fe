@@ -1,4 +1,24 @@
-export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsCollapsed: (value: boolean) => void }) {
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { COLORS } from "@/react-components/theme/colors";
+import EntityNavigator from "@/react-components/layout/EntityNavigator";
+
+interface NavItem {
+  label: string;
+  href?: string;
+}
+
+const navItems: NavItem[] = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Settings", href: "/settings" },
+];
+
+export default function Sidebar({
+  isCollapsed,
+  setIsCollapsed,
+}: {
+  isCollapsed: boolean;
+  setIsCollapsed: (value: boolean) => void;
+}) {
   return (
     <aside
       className={`relative h-full flex flex-col transition-all duration-300 ${
@@ -7,7 +27,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: 
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Sidebar Toggle */}
+      {/* Floating Sidebar Toggle (Sleek & Visible) */}
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
@@ -27,7 +47,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: 
         </div>
       )}
 
-      {/* Nav Links */}
+      {/* Navigation Links */}
       <nav className="flex-1 mt-16">
         <ul className="space-y-4">
           {navItems.map((item) => (
