@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { COLORS } from "@/react-components/theme/colors";
 
+// TODO: In the future, this will be dynamically fetched based on the logged-in user 
+// instead of being a static list. Treat this as a placeholder for now.
 const entities = [
   { id: "1", name: "Accountable Incorporated" },
   { id: "2", name: "Another Business LLC" },
