@@ -21,16 +21,16 @@ export default function Sidebar({
 }) {
   return (
     <aside
-      className={`relative h-screen flex flex-col transition-all duration-300 ${
+      className={`h-screen flex flex-col transition-all duration-300 ${
         isCollapsed ? "w-16" : "w-64"
       }`}
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Sidebar Toggle (Sleek & Visible) */}
+      {/* Floating Sidebar Toggle (Fully Clickable) */}
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
+        className="absolute top-[5%] -right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
         {isCollapsed ? (
