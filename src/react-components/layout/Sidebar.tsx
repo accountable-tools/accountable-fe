@@ -27,15 +27,15 @@ export default function Sidebar() {
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Toggle Button (Top-Right) */}
+      {/* Floating Toggle Button (Outside Sidebar) */}
       <button
         onClick={toggleSidebar}
-        className="absolute top-4 right-4 p-2 rounded-md text-white hover:bg-white/20 transition"
+        className="absolute top-[5%] -right-4 p-2 rounded-full bg-white shadow-md text-primary border border-gray-300 hover:bg-gray-100 transition"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
         <svg
-          width="20"
-          height="20"
+          width="24"
+          height="24"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -43,20 +43,19 @@ export default function Sidebar() {
             isCollapsed ? "rotate-180" : "rotate-0"
           }`}
         >
-          <path d="m12.97 17.53-7-7a.75.75 0 0 1 0-1.06l7-7a.772.772 0 0 1 1.046.013.772.772 0 0 1 .014 1.047L7.56 10l6.47 6.47a.762.762 0 0 1 0 1.06.76.76 
-0 0 1-1.06 0Z" />
+          <path d="m12.97 17.53-7-7a.75.75 0 0 1 0-1.06l7-7a.772.772 0 0 1 1.046.013.772.772 0 0 1 .014 1.047L7.56 10l6.47 6.47a.762.762 0 0 1 0 1.06.76.76 0 0 1-1.06 0Z" />
         </svg>
       </button>
 
-      {/* Entity Navigator (Placed Below Toggle) */}
+      {/* Entity Navigator (Pinned to Top) */}
       {!isCollapsed && (
-        <div className="px-4 mt-10">
+        <div className="absolute top-2 left-0 w-full px-4">
           <EntityNavigator />
         </div>
       )}
 
       {/* Nav Links */}
-      <nav className="flex-1 mt-6">
+      <nav className="flex-1 mt-16">
         <ul className="space-y-4">
           {navItems.map((item) => (
             <li key={item.label}>
