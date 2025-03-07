@@ -14,7 +14,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className={`flex flex-col transition-all duration-300 ${
           isCollapsed ? "ml-16" : "ml-64"
         }`}
-        style={{ width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)" }}
+        style={{
+          width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)",
+          // Ensures no gap when sidebar is collapsed
+          transition: "width 0.3s ease-in-out",
+        }}
       >
         <nav className="h-16 bg-white shadow-md flex items-center px-4 transition-all duration-300">
           <h1 className="text-lg font-semibold min-w-[50px] transition-all duration-300">
