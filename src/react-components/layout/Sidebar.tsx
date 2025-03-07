@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { COLORS } from "@/react-components/theme/colors";
-import EntityNavigator from "@/react-components/layout/EntityNavigator"; // Import EntityNavigator
+import EntityNavigator from "@/react-components/layout/EntityNavigator";
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Import sleek chevron icons
 
 interface NavItem {
   label: string;
@@ -27,24 +28,17 @@ export default function Sidebar() {
       style={{ backgroundColor: COLORS.primary }}
       aria-label="Sidebar Navigation"
     >
-      {/* Floating Toggle Button (Outside Sidebar) */}
+      {/* Floating Sidebar Toggle (Sleek & Modern) */}
       <button
         onClick={toggleSidebar}
-        className="absolute top-[5%] -right-4 p-2 rounded-full bg-white shadow-md text-primary border border-gray-300 hover:bg-gray-100 transition"
+        className="absolute top-[5%] -right-5 p-2 rounded-full bg-white shadow-md text-primary border border-gray-300 hover:bg-gray-100 transition flex items-center justify-center"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          className={`transition-transform duration-300 ${
-            isCollapsed ? "rotate-180" : "rotate-0"
-          }`}
-        >
-          <path d="m12.97 17.53-7-7a.75.75 0 0 1 0-1.06l7-7a.772.772 0 0 1 1.046.013.772.772 0 0 1 .014 1.047L7.56 10l6.47 6.47a.762.762 0 0 1 0 1.06.76.76 0 0 1-1.06 0Z" />
-        </svg>
+        {isCollapsed ? (
+          <ChevronRight size={20} strokeWidth={2} />
+        ) : (
+          <ChevronLeft size={20} strokeWidth={2} />
+        )}
       </button>
 
       {/* Entity Navigator (Pinned to Top) */}
