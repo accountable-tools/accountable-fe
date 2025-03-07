@@ -14,11 +14,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className={`flex flex-col transition-all duration-300 ${
           isCollapsed ? "ml-16" : "ml-64"
         }`}
-        style={{ width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)" }}
+        style={{ minHeight: "100vh" }}
       >
         {/* Top Navigation */}
-        <nav className="h-16 bg-white shadow-md flex items-center px-4">
-          <h1 className="text-lg font-semibold transition-all duration-300">
+        <nav className="h-16 bg-white shadow-md flex items-center px-4 transition-all duration-300">
+          <h1 className="text-lg font-semibold">
             {isCollapsed ? "AT" : "Accountable Tools"}
           </h1>
         </nav>
