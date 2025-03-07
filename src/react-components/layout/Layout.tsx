@@ -9,16 +9,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Sidebar (controls isCollapsed state) */}
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
-      {/* Main Content Wrapper - Adjusts dynamically */}
+      {/* Main Content Wrapper - Fixes Alignment */}
       <div
         className={`flex flex-col transition-all duration-300 ${
           isCollapsed ? "ml-16" : "ml-64"
         }`}
         style={{ minHeight: "100vh" }}
       >
-        {/* Top Navigation */}
+        {/* Top Navigation (Fixes Text Cutoff) */}
         <nav className="h-16 bg-white shadow-md flex items-center px-4 transition-all duration-300">
-          <h1 className="text-lg font-semibold">
+          <h1 className="text-lg font-semibold min-w-[50px] transition-all duration-300">
             {isCollapsed ? "AT" : "Accountable Tools"}
           </h1>
         </nav>
