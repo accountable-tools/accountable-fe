@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "@/react-components/layout/Sidebar";
 import Main from "@/react-components/layout/Main";
-import BottomNav from "@/react-components/layout/BottomNav";
+import Footer from "@/react-components/layout/Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Main>{children}</Main>
 
         {/* Bottom navigation / footer */}
-        <BottomNav />
+        <Footer />
       </div>
     </div>
   );
