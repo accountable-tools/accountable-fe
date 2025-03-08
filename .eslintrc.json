@@ -1,5 +1,9 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
   "plugins": ["react", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2021,
@@ -9,6 +13,10 @@
   "rules": {
     "prettier/prettier": "error",
     "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"  // 🔥 Auto-detect React version to avoid false ESLint errors
+    }
   }
 }
-
