@@ -12,7 +12,7 @@ export default function Main({
 }) {
   return (
     <div
-      className="flex flex-col min-h-screen bg-cream transition-all duration-300"
+      className="flex flex-col min-h-screen bg-cream transition-all duration-300" // <-- bg-cream moved here
       style={{
         width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)",
       }}
