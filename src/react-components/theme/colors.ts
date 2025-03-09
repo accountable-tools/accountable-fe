@@ -4,6 +4,6 @@ export const COLORS = {
   slateCharcoal: "#212529",
   boneWhite: "#F4F0EA",
   softStone: "#E2DED7",
-  cream: '#F5F5DC',
+  cream: "#F5F5DC",
   cactusGold: "#E5B14B",
 };
