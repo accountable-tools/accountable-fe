@@ -1,4 +1,4 @@
-import { COLORS } from "@/react-components/theme/colors";
+import { COLORS } from "./src/react-components/theme/colors";
 
 module.exports = {
   content: [
