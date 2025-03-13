@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { HomeIcon, PaymentsIcon } from "@/react-components/icons";
 import { COLORS } from "@/react-components/theme/colors";
 import EntityNavigator from "@/react-components/layout/EntityNavigator";
 
@@ -20,7 +21,8 @@ export default function Sidebar({
       {/* Sidebar Toggle - Correctly Positioned on Sidebar's Right Edge */}
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute top-[5%] right-0 translate-x-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
+        className="absolute top-[5%] right-0 translate-x-1/2 w-10 h-10 flex items-center justify-center rounded-full 
+bg-white shadow-md border border-gray-300 hover:bg-gray-100 transition"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
         {isCollapsed ? (
@@ -45,7 +47,7 @@ export default function Sidebar({
               href="/dashboard"
               className="flex items-center px-3 py-2 rounded-md text-white hover:bg-opacity-90"
             >
-              <span className="w-6 h-6 bg-white bg-opacity-20 rounded"></span>
+              <HomeIcon color="boneWhite" size={24} />
               {!isCollapsed && (
                 <span className="ml-3 transition-opacity duration-300">
                   Dashboard
@@ -58,7 +60,7 @@ export default function Sidebar({
               href="/settings"
               className="flex items-center px-3 py-2 rounded-md text-white hover:bg-opacity-90"
             >
-              <span className="w-6 h-6 bg-white bg-opacity-20 rounded"></span>
+              <PaymentsIcon color="boneWhite" size={24} />
               {!isCollapsed && (
                 <span className="ml-3 transition-opacity duration-300">
                   Settings
@@ -71,3 +73,4 @@ export default function Sidebar({
     </aside>
   );
 }
+
