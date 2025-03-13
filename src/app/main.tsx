@@ -1,7 +1,7 @@
 import React from "react";
-import TopNav from "@/react-components/layout/TopNav";
-import Body from "@/react-components/layout/Body";
-import Footer from "@/react-components/layout/Footer";
+import TopNav from "@/app/topnav"; 
+import Body from "@/app/body"; 
+import Footer from "@/app/footer";
 
 export default function Main({
   children,
@@ -12,7 +12,7 @@ export default function Main({
 }) {
   return (
     <div
-      className="flex flex-col min-h-screen bg-cream transition-all duration-300" // <-- bg-cream moved here
+      className="flex flex-col min-h-screen bg-cream transition-all duration-300"
       style={{
         width: isCollapsed ? "calc(100% - 4rem)" : "calc(100% - 16rem)",
       }}
@@ -28,3 +28,4 @@ export default function Main({
     </div>
   );
 }
+

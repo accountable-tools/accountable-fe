@@ -1,7 +1,9 @@
+"use client";
+
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HomeIcon, PaymentsIcon } from "@/react-components/icons";
 import { COLORS } from "@/react-components/theme/colors";
-import EntityNavigator from "@/react-components/layout/EntityNavigator";
+import EntityNavigator from "@/app/entitynavigator";
 
 export default function Sidebar({
   isCollapsed,
@@ -10,6 +12,10 @@ export default function Sidebar({
   isCollapsed: boolean;
   setIsCollapsed: (value: boolean) => void;
 }) {
+
+  console.log("Sidebar - isCollapsed:", isCollapsed);
+  console.log("Sidebar - setIsCollapsed:", setIsCollapsed);
+
   return (
     <aside
       className={`h-screen flex flex-col transition-all duration-300 relative ${
